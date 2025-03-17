@@ -1,0 +1,21 @@
+# Ignore traces folder
+@traces/
+@traces/*
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build directories and files
+# *.o
+# *.so
+# *.dylib
+# *.dll
+# *.exe
+# *.out
+# *.app 
