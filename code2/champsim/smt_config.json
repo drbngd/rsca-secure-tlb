@@ -1,0 +1,119 @@
+{
+    "num_cores": 2,
+    "ooo_cpu": [
+        {
+            "name": "cpu0",
+            "L1I": "shared_l1i",
+            "L1D": "shared_l1d",
+            "ITLB": "shared_itlb",
+            "DTLB": "shared_dtlb",
+            "L2C": "shared_l2c",
+            "frequency": 4000,
+            "rob_size": 352,
+            "lq_size": 128,
+            "sq_size": 72,
+            "fetch_width": 6,
+            "decode_width": 6,
+            "dispatch_width": 6,
+            "execute_width": 4,
+            "lq_width": 2,
+            "sq_width": 2,
+            "retire_width": 5
+        },
+        {
+            "name": "cpu1",
+            "L1I": "shared_l1i",
+            "L1D": "shared_l1d",
+            "ITLB": "shared_itlb",
+            "DTLB": "shared_dtlb",
+            "L2C": "shared_l2c",
+            "frequency": 4000,
+            "rob_size": 352,
+            "lq_size": 128,
+            "sq_size": 72,
+            "fetch_width": 6,
+            "decode_width": 6,
+            "dispatch_width": 6,
+            "execute_width": 4,
+            "lq_width": 2,
+            "sq_width": 2,
+            "retire_width": 5
+        }
+    ],
+    "caches": [
+        {
+            "name": "shared_l1i",
+            "sets": 64,
+            "ways": 8,
+            "replacement": "lru",
+            "prefetcher": "next_line",
+            "lower_level": "shared_l2c",
+            "_queue_factor": 32,
+            "frequency": 4000
+        },
+        {
+            "name": "shared_l1d",
+            "sets": 64,
+            "ways": 8,
+            "replacement": "lru",
+            "prefetcher": "next_line",
+            "lower_level": "shared_l2c",
+            "_queue_factor": 32,
+            "frequency": 4000
+        },
+        {
+            "name": "shared_itlb",
+            "sets": 16,
+            "ways": 4,
+            "replacement": "lru",
+            "lower_level": "shared_stlb",
+            "_queue_factor": 16,
+            "frequency": 4000
+        },
+        {
+            "name": "shared_dtlb",
+            "sets": 16,
+            "ways": 4,
+            "replacement": "lru",
+            "lower_level": "shared_stlb",
+            "_queue_factor": 16,
+            "frequency": 4000
+        },
+        {
+            "name": "shared_l2c",
+            "sets": 512,
+            "ways": 8,
+            "replacement": "lru",
+            "lower_level": "LLC",
+            "_queue_factor": 16,
+            "frequency": 4000
+        },
+        {
+            "name": "shared_stlb",
+            "sets": 128,
+            "ways": 12,
+            "replacement": "lru",
+            "lower_level": "PTW",
+            "_queue_factor": 16,
+            "frequency": 4000
+        },
+        {
+            "name": "LLC",
+            "sets": 2048,
+            "ways": 16,
+            "replacement": "lru",
+            "lower_level": "DRAM",
+            "_queue_factor": 32,
+            "frequency": 4000
+        }
+    ],
+    "PTW": {
+        "name": "PTW",
+        "lower_level": "DRAM",
+        "_queue_factor": 16,
+        "rq_size": 16,
+        "wq_size": 16,
+        "fill_level": 0,
+        "frequency": 4000
+    }
+} 

@@ -18,11 +18,7 @@ override REPLACEMENT_ROOT += $(addsuffix /replacement,$(MODULE_ROOT))
 TRIPLET_DIR = $(patsubst %/,%,$(firstword $(filter-out $(ROOT_DIR)/vcpkg_installed/vcpkg/, $(wildcard $(ROOT_DIR)/vcpkg_installed/*/))))
 override CPPFLAGS += -I$(OBJ_ROOT)
 override LDFLAGS  += -L$(TRIPLET_DIR)/lib -L$(TRIPLET_DIR)/lib/manual-link
-# incorrect: not linking CL11
-# override LDLIBS   += -llzma -lz -lbz2 -lfmt
-
-# correct: linking CL11 for clang++ on macos
-override LDLIBS   += -lCLI11 -llzma -lz -lbz2 -lfmt
+override LDLIBS   += -llzma -lz -lbz2 -lfmt
 
 .PHONY: all clean configclean test pytest maketest
 

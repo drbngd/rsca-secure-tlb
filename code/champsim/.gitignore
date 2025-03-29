@@ -27,7 +27,3 @@ absolute.options
 
 .vscode/
 **/.DS_Store
-
-# Ignore traces directory
-traces/
-traces/*
